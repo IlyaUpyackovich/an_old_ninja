@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Slower
+  - Enemy
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - 
   - 
   - Ground
-  - 
+  - Player
   - 
   - 
   - 
@@ -52,4 +55,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 62268251
+    locked: 0
+  - name: Effects
+    uniqueID: 2045444055
     locked: 0

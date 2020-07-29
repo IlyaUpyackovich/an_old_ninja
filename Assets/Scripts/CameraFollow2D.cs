@@ -24,6 +24,11 @@ public class CameraFollow2D : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (!player)
+        {
+            return;
+        }
+
         float deltaX = player.position.x - lastPlayerPosition.x;
         if (Mathf.Abs(deltaX) > lookAheadThreshold)
         {
