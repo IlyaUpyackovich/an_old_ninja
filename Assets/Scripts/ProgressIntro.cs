@@ -5,6 +5,7 @@ public class ProgressIntro : MonoBehaviour
     public Survive survive;
     public GameObject player;
     public Checkpoint[] checkpoints;
+    public RandomMobSpawner mobSpawner;
 
     public void OnPlayerDeath()
     {
@@ -20,13 +21,21 @@ public class ProgressIntro : MonoBehaviour
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.GetComponent<Player>().fullHeal();
 
+        if (mobSpawner.gameObject.activeSelf)
+        {
+            mobSpawner.Clean();
+            mobSpawner.StopSpawn();
+        }
+
         if (survive.enabled)
             survive.Clean();
     }
 
     public void OnDeathStateExit()
     {
-        if (survive.enabled)
-            survive.ResetSpanwer();
+        if (mobSpawner.gameObject.activeSelf)
+        {
+            mobSpawner.StartSpawn();
+        }
     }
 }

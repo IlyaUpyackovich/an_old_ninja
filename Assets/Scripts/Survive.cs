@@ -7,7 +7,7 @@ public class Survive : MonoBehaviour
     public GameObject jumpText;
     public GameObject finish;
     public int[] intervals;
-    public float timer;
+    public float timer = 60f;
 
     private StateMachine stateMachine;
     private AudioSource audioSource;
@@ -67,13 +67,6 @@ public class Survive : MonoBehaviour
     {
         Init();
         audioSource.Stop();
-
-        mobSpawner.Clean();
-    }
-
-    public void ResetSpanwer()
-    {
-        mobSpawner.StartSpawn();
         mobSpawner.interval = 5f;
     }
 }

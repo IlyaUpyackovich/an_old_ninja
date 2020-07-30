@@ -25,8 +25,7 @@ public class RandomMobSpawner : MonoBehaviour
         stateMachine = FindObjectOfType<StateMachine>();
         mobsObject = transform.Find("Mobs").gameObject;
 
-        coroutine = Spawn();
-        StartCoroutine(coroutine);
+        StartSpawn();
 
         onActive.Invoke();
     }
@@ -40,9 +39,16 @@ public class RandomMobSpawner : MonoBehaviour
         }
     }
 
+    public void StopSpawn()
+    {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
+    }
+
     public void StartSpawn()
     {
-        StopCoroutine(coroutine);
         coroutine = Spawn();
         StartCoroutine(coroutine);
     }
